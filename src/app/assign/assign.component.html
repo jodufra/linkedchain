@@ -2,34 +2,40 @@
 
 <section class="account-dashboard generalSection">
     <div class="container">
+            <div class="columns">
+                    <div class="column"> </div>
+                    <div class="column">
         <form #form="ngForm" (ngSubmit)="registerCertification()">
             <div class="field">
                 <strong>Person Address</strong>
                 <div class="control has-icons-left has-icons-right">
-                    <input class="input" type="text" placeholder="Text input" required [(ngModel)]="personAddress" name="personAddress">
+                    <input [class.is-danger]="!personAddress" [class.is-success]="personAddress"  class="input" type="text" placeholder="Text input" required [(ngModel)]="personAddress" name="personAddress">
                     <span class="icon is-small is-left">
-                            <i class="fa fa-user"></i>
+                            <i [class.is-danger]="!personAddress" [class.is-success]="personAddress"  class="fa fa-user"></i>
                         </span>
                     <span class="icon is-small is-right">
-                            <i class="fa fa-check"></i>
+                            <i [class.is-danger]="!personAddress" [class.is-success]="personAddress"  class="fa fa-check"></i>
                         </span>
                 </div>
             </div>
             <div class="field">
                 <strong>Certification</strong>
                 <div class="control has-icons-left has-icons-right">
-                    <input class="input" type="text" placeholder="Certification name" required [(ngModel)]="certificationName" name="certificationName">
+                    <input [class.is-danger]="!certificationName" [class.is-success]="certificationName" class="input" type="text" placeholder="Certification name"
+                        required [(ngModel)]="certificationName" name="certificationName">
                     <span class="icon is-small is-left">
-                            <i class="fa fa-star"></i>
+                            <i [class.is-danger]="!certificationName"   [class.is-success]="certificationName" class="fa fa-star"></i>
                         </span>
                     <span class="icon is-small is-right">
-                            <i class="fa fa-check"></i>
+                            <i [class.is-danger]="!certificationName"   [class.is-success]="certificationName"  class="fa fa-check"></i>
                         </span>
                 </div>
             </div>
             <div class="control has-text-centered">
                 <button [disabled]="!form.valid || isLoading" type="submit" class="button is-primary">Certificate</button>
             </div>
-        </form>
+        </form></div>
+        <div class="column"> </div>
+        </div>
     </div>
 </section>
