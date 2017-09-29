@@ -1,0 +1,14 @@
+.breadcrumb{padding: 10px 0;}
+.breadcrumb .logo{max-width: 150px;}
+.breadcrumb ul{margin: 10px 0;}
+.breadcrumb ul> li > a{color: white; transition: 0.5s;}
+.breadcrumb ul> li > a:hover{transition: 0.3s; color: #05A2C5;}
+.breadcrumb ul> li.is-active{color: white; font-weight: 700;}
+.breadcrumb ul> li + li::before{color: white; margin-right: 10px;}
+
+.account-dashboard .name{letter-spacing: 0.3px; color: #05A2C5; font-size: 16px; line-height:16px;}
+.account-dashboard .table{width: 100%;}
+.account-dashboard .table td, .account-dashboard .table th{border:0; border-bottom:1px solid rgba(5, 165, 197, 0.2); padding-left:0;}
+.account-dashboard .table tr:hover {
+    background-color:rgba(5, 165, 197, 0.05);
+}
