@@ -10,14 +10,13 @@
                     </figure>
                     <form id="LoginForm" *ngIf="address; else notConnected">
                         <div class="field">
-                                <label class="label">Your Address:</label>
-                                <label class="">{{address}}</label>
+                            <label class="label">Your Address:</label>
+                            <label class="">{{address}}</label>
                         </div>
                         <div class="field">
-                                <label class="label">Username</label>
-                                
+                            <label class="label">Username</label>
                             <div class="control has-icons-left has-icons-right">
-                                <input class="input" type="text" placeholder="Text input" value="" required [(ngModel)]="entity.name">
+                                <input class="input" type="text" placeholder="Text your name" value="" required [(ngModel)]="entity.name">
                                 <span class="icon is-small is-left">
                             <i class="fa fa-user"></i>
                             </span>
@@ -40,9 +39,9 @@
                     </form>
                     <ng-template #notConnected>
                         <div class="control has-text-centered">
-                                <p class="label">Please, make login with metamask!</p>
-                                <button type="button " class="button is-success"><i class="fa refresh fa-refresh"></i> Reload page </button>
-                            </div>
+                            <p class="label">Please, make login with metamask!</p>
+                            <button type="button " class="button is-success"><i class="fa refresh fa-refresh"></i> Reload page </button>
+                        </div>
                     </ng-template>
                 </div>
             </div>

@@ -20,9 +20,11 @@ export class LayoutComponent implements OnInit {
 
   ngOnInit(): void {
     this.linkedChainContract.getEntity().subscribe((result: any) => { 
-      this.entity = new Entity();
-      this.entity.name = result.name;
-      this.ref.detectChanges();
+      if (result) {
+        this.entity = new Entity();
+        this.entity.name = result[0];
+        this.ref.detectChanges();
+      }
     } );
   }
 
