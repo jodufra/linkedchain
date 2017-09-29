@@ -13,7 +13,7 @@ import { Entity } from '../_shared/entities/entity';
 export class SignUpComponent implements OnInit {
 
   address: string = null;
-  entity: Entity = null;
+  entity: Entity = new Entity();
   isLoading: boolean = false;
 
   constructor(
