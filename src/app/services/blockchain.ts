@@ -53,17 +53,14 @@ export class BlockchainService {
     });
   }
 
-  loginEventEmmitter(): Observable<void> {
+  changeStateEvent(): Observable<boolean> {
     return Observable.create(observer => {
-      web3.eth.getAccounts( (error, result) => {
-        if (error !== null || result.length === 0)
-          observer.error();
-        else 
-        {
-          observer.next();
-          observer.complete();
-        }
-      });
+      window.setInterval(() =>  {
+          let add = this.getAddress();
+          console.log(add);
+          observer.next(add !== null && add !== undefined);
+      }
+      , 5000);
     });
   }
 
