@@ -1,18 +1,26 @@
-<p>Account</p>
+<app-breadcrumb></app-breadcrumb>
 
-<form id="LoginForm" *ngIf="address; else notConnected" #form="ngForm" (ngSubmit)="registerAccount()">
-    <div class="field">
-        <div class="control has-icons-left has-icons-right">
-            <input class="input" type="text" placeholder="Text input" value="" required [(ngModel)]="entity.name">
-            <span class="icon is-small is-left">
-                <i class="fa fa-user"></i>
-            </span>
-            <span class="icon is-small is-right">
-                <i class="fa fa-check"></i>
-            </span>
-        </div>
+<section class="account-dashboard generalSection" *ngIf="entity">
+    <div class="container">
+        <form id="LoginForm" #form="ngForm" (ngSubmit)="upateAccount()">
+            <div class="field">
+                <h2>Your Address</h2>
+                <strong>{{address}}</strong>
+            </div>
+            <div class="field">
+                <div class="control has-icons-left has-icons-right">
+                    <input class="input" type="text" placeholder="Text input" required [(ngModel)]="entity.name" name="name">
+                    <span class="icon is-small is-left">
+                        <i class="fa fa-user"></i>
+                    </span>
+                    <span class="icon is-small is-right">
+                        <i class="fa fa-check"></i>
+                    </span>
+                </div>
+            </div>
+            <div class="control has-text-centered">
+                <button [disabled]="!form.valid || isLoading" type="submit" class="button is-primary">Update</button>
+            </div>
+        </form>
     </div>
-    <div class="control has-text-centered">
-        <button [disabled]="!form.valid || isLoading" type="submit" class="button is-primary">Register</button>
-    </div>
-</form>
+</section>

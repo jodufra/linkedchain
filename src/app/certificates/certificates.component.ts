@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Entity } from '../_shared/entities/entity';
 
 @Component({
   selector: 'app-certificates',
@@ -6,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./certificates.component.css']
 })
 export class CertificatesComponent implements OnInit {
+
+  entity: Entity = null;
 
   constructor() { }
 

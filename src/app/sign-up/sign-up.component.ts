@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { Entity } from '../_shared/entities/entity';
 import { BlockchainService } from '../_shared/services/blockchain';
 import { LinkedChainContract } from '../_shared/smartcontracts/linkedchain.contract';
+import { SessionService } from '../_shared/services/session';
 
 @Component({
   selector: 'app-sign-up',
@@ -17,6 +18,7 @@ export class SignUpComponent implements OnInit {
   isLoading: boolean = false;
 
   constructor(
+    private sessionService: SessionService,
     private securityService: SecurityService,
     private blochainService: BlockchainService,
     private linkedChainContract: LinkedChainContract,
@@ -32,8 +34,9 @@ export class SignUpComponent implements OnInit {
      if (this.securityService.isAccountActive()) 
      {
         this.address = this.securityService.getAddress();
+        this.sessionService.address = this.address;
         // check on blockchain fot this address
-        this.linkedChainContract.registedEntities(this.address).subscribe((result:boolean) => { 
+        this.linkedChainContract.isEntityRegistered(this.address).subscribe((result:boolean) => { 
           if (result)
           {
             this.router.navigateByUrl('/dashboard');
@@ -44,8 +47,11 @@ export class SignUpComponent implements OnInit {
 
   registerAccount(): void {
     this.isLoading = true;
+    console.log(this.entity.name);
     this.linkedChainContract.updateEntity(this.entity.name).subscribe(
-      () => this.router.navigateByUrl('/dashboard'),
+      () => { 
+        this.router.navigateByUrl('/dashboard');
+      },
       ()=> {},
       () => this.isLoading = false
     );

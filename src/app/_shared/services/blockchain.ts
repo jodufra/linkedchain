@@ -53,6 +53,17 @@ export class BlockchainService {
     });
   }
 
+  executeMethod2(contract: IContract, method: string, param1: any, param2: any): Observable<any> {
+    return Observable.create(observer => {
+      const connector = web3.eth.contract(contract.IBArray).at(contract.Address);
+      debugger;
+      connector[method](param1, param2, (error, result) => {
+        observer.next(result);
+        observer.complete();
+      });
+    });
+  }
+
   watch(contract: IContract, event: string): Observable<any> {
     return Observable.create(observer => {
       const connector = web3.eth.contract(contract.IBArray).at(contract.Address);

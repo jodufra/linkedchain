@@ -1,0 +1,35 @@
+<app-breadcrumb></app-breadcrumb>
+
+<section class="account-dashboard generalSection">
+    <div class="container">
+        <form #form="ngForm" (ngSubmit)="registerCertification()">
+            <div class="field">
+                <strong>Person Address</strong>
+                <div class="control has-icons-left has-icons-right">
+                    <input class="input" type="text" placeholder="Text input" required [(ngModel)]="personAddress" name="personAddress">
+                    <span class="icon is-small is-left">
+                            <i class="fa fa-user"></i>
+                        </span>
+                    <span class="icon is-small is-right">
+                            <i class="fa fa-check"></i>
+                        </span>
+                </div>
+            </div>
+            <div class="field">
+                <strong>Certification</strong>
+                <div class="control has-icons-left has-icons-right">
+                    <input class="input" type="text" placeholder="Certification name" required [(ngModel)]="certificationName" name="certificationName">
+                    <span class="icon is-small is-left">
+                            <i class="fa fa-star"></i>
+                        </span>
+                    <span class="icon is-small is-right">
+                            <i class="fa fa-check"></i>
+                        </span>
+                </div>
+            </div>
+            <div class="control has-text-centered">
+                <button [disabled]="!form.valid || isLoading" type="submit" class="button is-primary">Certificate</button>
+            </div>
+        </form>
+    </div>
+</section>
