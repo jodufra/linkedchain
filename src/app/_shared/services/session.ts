@@ -26,8 +26,14 @@ export class SessionService {
       }
       if (this.entity == null) {
           this.linkedChainContract.getEntity().subscribe((result: any) => {
-              this.entity = new Entity();
-              this.entity.name = result[0];
+              if (result && result.length > 0) {
+                this.entity = new Entity();
+                this.entity.name = result[0];
+                this.entity.isCompany = result[1];
+                this.entity.certificationsCounter = result[2].s;
+              } else {
+                  this.entity = null;
+              }
               this.ref.tick();
            });
       }

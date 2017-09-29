@@ -2,6 +2,7 @@
 
 <section class="account-dashboard generalSection">
     <div class="container">
+        <h1>Assign Certifiction</h1>
         <form #form="ngForm" (ngSubmit)="registerCertification()">
             <div class="field">
                 <strong>Person Address</strong>
@@ -16,7 +17,7 @@
                 </div>
             </div>
             <div class="field">
-                <strong>Certification</strong>
+                <strong>Certification Hash</strong>
                 <div class="control has-icons-left has-icons-right">
                     <input class="input" type="text" placeholder="Certification name" required [(ngModel)]="certificationName" name="certificationName">
                     <span class="icon is-small is-left">

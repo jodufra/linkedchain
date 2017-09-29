@@ -36,7 +36,7 @@ export class SignUpComponent implements OnInit {
         this.address = this.securityService.getAddress();
         this.sessionService.address = this.address;
         // check on blockchain fot this address
-        this.linkedChainContract.isEntityRegistered(this.address).subscribe((result:boolean) => { 
+        this.linkedChainContract.isEntityRegistered(this.address).subscribe((result:boolean) => {
           if (result)
           {
             this.router.navigateByUrl('/dashboard');
