@@ -1,0 +1,23 @@
+<nav class="breadcrumb bgBlue" aria-label="breadcrumbs">
+    <div class="container">
+        <a [routerLink]="['/dashboard']" class="is-pulled-left is-inline-flex logo"><img src="assets/images/logotipo-white.png" alt="linkedChain"></a>
+        <ul class="is-pulled-right is-inline-flex">
+            <li><a [routerLink]="['/certificates']">Certificates</a></li>
+            <li><a [routerLink]="['/account']">Account</a></li>
+            <li><a [routerLink]="['/profile']">Profiles</a></li>
+            <li><a [routerLink]="['/credit']">Credits</a></li>
+        </ul>
+    </div>
+</nav>
+<router-outlet></router-outlet>
+<footer class="footer">
+    <div class="container">
+        <div class=" has-text-centered">
+            <p *ngIf="entity">Hello {{entity.name}}</p>
+            <p>
+                <strong>LinkedChain</strong> by <a href="http://jgthms.com">Team Power</a>. The source code is licensed
+                <a href="http://opensource.org/licenses/mit-license.php">MIT</a>
+            </p>
+        </div>
+    </div>
+</footer>

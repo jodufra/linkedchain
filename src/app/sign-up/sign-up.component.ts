@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { SecurityService } from '../_shared/services/security.service';
-import { BlockchainService } from '../services/blockchain';
-import { LinkedChainContract } from '../_contracts/linkedchain.contract';
 import { Router } from '@angular/router';
 import { Entity } from '../_shared/entities/entity';
+import { BlockchainService } from '../_shared/services/blockchain';
+import { LinkedChainContract } from '../_shared/smartcontracts/linkedchain.contract';
 
 @Component({
   selector: 'app-sign-up',

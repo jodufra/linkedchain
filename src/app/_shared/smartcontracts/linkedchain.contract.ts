@@ -1,7 +1,7 @@
 import { IContract } from './abstract/icontract';
-import { BlockchainService } from '../services/blockchain';
 import { Observable } from 'rxjs/Observable';
 import { Injectable } from '@angular/core';
+import { BlockchainService } from '../services/blockchain';
 
 @Injectable()
 export class LinkedChainContract implements IContract {
