@@ -10,6 +10,15 @@ export class BlockchainService {
 
   constructor() { }
 
+  initialize(): void {
+    if (typeof web3 !== 'undefined') {
+      web3 = new Web3(web3.currentProvider);
+    } else {
+      // set the provider you want from Web3.providers
+      web3 = new Web3(new Web3.providers.HttpProvider("http://moon.pixels.camp:8545"));
+    }
+  }
+
   isConnected(): boolean {
     return web3.isConnected();
   }
