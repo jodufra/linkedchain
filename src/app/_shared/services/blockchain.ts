@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
-import { IContract } from '../_contracts/abstract/icontract';
+import { IContract } from '../smartcontracts/abstract/icontract';
 
 // https://github.com/ethereum/web3.js/
 declare var Web3, web3: any;
@@ -57,7 +57,6 @@ export class BlockchainService {
     return Observable.create(observer => {
       window.setInterval(() =>  {
           let add = this.getAddress();
-          console.log(add);
           observer.next(add !== null && add !== undefined);
       }
       , 5000);

@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { BlockchainService } from './services/blockchain';
 
 @Component({
   selector: 'app-root',
@@ -8,12 +7,11 @@ import { BlockchainService } from './services/blockchain';
 })
 export class AppComponent implements OnInit {
   
-    constructor(private blockChainService: BlockchainService) { }
+    constructor(
+    ) { }
   
     ngOnInit() {
-       this.blockChainService.changeStateEvent().subscribe(
-          (isLogged) => console.log('changed state:' + isLogged)        
-       );
+
     }
   
   }

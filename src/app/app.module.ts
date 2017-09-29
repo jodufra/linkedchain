@@ -11,10 +11,12 @@ import { CertificationComponent } from './certification/certification.component'
 import { CreditComponent } from './credit/credit.component';
 import { ProfileComponent } from './profile/profile.component';
 import { LayoutComponent } from './layout/layout.component';
+import { AccountComponent } from './account/account.component';
+import { CertificatesComponent } from './certificates/certificates.component';
 import { AuthGuard } from './_shared/guards/auth.guard';
 import { SecurityService } from './_shared/services/security.service';
-import { BlockchainService } from './services/blockchain';
-import { LinkedChainContract } from './_contracts/linkedchain.contract';
+import { BlockchainService } from './_shared/services/blockchain';
+import { LinkedChainContract } from './_shared/smartcontracts/linkedchain.contract';
 
 const appRoutes: Routes = [
   { path: 'sign-up', component: SignUpComponent },
@@ -25,6 +27,10 @@ const appRoutes: Routes = [
     children: [
      { path: "", component: DashboardComponent },
      { path: "dashboard", component: DashboardComponent },
+     { path: "account", component: AccountComponent },
+     { path: "certificates", component: CertificatesComponent },
+     { path: "credit", component: CreditComponent },
+     { path: "profile", component: ProfileComponent },
      { path: "**", component: DashboardComponent },
     ]
    }
@@ -38,7 +44,9 @@ const appRoutes: Routes = [
     DashboardComponent,
     CertificationComponent,
     CreditComponent,
-    ProfileComponent
+    ProfileComponent,
+    CertificatesComponent,
+    AccountComponent
   ],
   imports: [
     BrowserModule,
@@ -48,7 +56,12 @@ const appRoutes: Routes = [
       //{ enableTracing: true } // <-- debugging purposes only
     )
   ],
-  providers: [LinkedChainContract,BlockchainService,SecurityService,AuthGuard],
+  providers: [
+    LinkedChainContract,
+    BlockchainService,
+    SecurityService,
+    AuthGuard
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
