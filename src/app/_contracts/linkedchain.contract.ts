@@ -1,11 +1,13 @@
 import { IContract } from './abstract/icontract';
 import { BlockchainService } from '../services/blockchain';
 import { Observable } from 'rxjs/Observable';
+import { Injectable } from '@angular/core';
 
+@Injectable()
 export class LinkedChainContract implements IContract {
 
   IBArray = [{ "constant": true, "inputs": [{ "name": "", "type": "address" }, { "name": "", "type": "uint256" }], "name": "certifications", "outputs": [{ "name": "", "type": "string" }], "payable": false, "type": "function" }, { "constant": false, "inputs": [{ "name": "_name", "type": "string" }], "name": "updateEntity", "outputs": [], "payable": false, "type": "function" }, { "constant": false, "inputs": [{ "name": "_certification", "type": "string" }], "name": "addCertification", "outputs": [], "payable": false, "type": "function" }, { "constant": true, "inputs": [{ "name": "", "type": "address" }], "name": "registedEntities", "outputs": [{ "name": "", "type": "bool" }], "payable": false, "type": "function" }, { "constant": true, "inputs": [], "name": "getEntity", "outputs": [{ "name": "name", "type": "string" }, { "name": "isCompany", "type": "bool" }, { "name": "certificationsCounter", "type": "uint256" }], "payable": false, "type": "function" }, { "inputs": [], "payable": false, "type": "constructor" }];
-  Address = "INSERT CONTRACT ADDRESS HERE";
+  Address = "0x30d6fff8231ac387cb1a3d541e1d7367df240cbb";
 
 	/**
 	 * Teste constructor
@@ -45,7 +47,7 @@ export class LinkedChainContract implements IContract {
 	 * @param {number}
 	 * @returns {Observable< boolean  >}
 	 */
-  registedEntities(address_1: number): Observable<boolean> {
+  registedEntities(address_1: string): Observable<boolean> {
     return this.blockchainService.executeMethod(this, 'registedEntities', address_1);
   }
 

@@ -53,4 +53,18 @@ export class BlockchainService {
     });
   }
 
+  loginEventEmmitter(): Observable<void> {
+    return Observable.create(observer => {
+      web3.eth.getAccounts( (error, result) => {
+        if (error !== null || result.length === 0)
+          observer.error();
+        else 
+        {
+          observer.next();
+          observer.complete();
+        }
+      });
+    });
+  }
+
 }

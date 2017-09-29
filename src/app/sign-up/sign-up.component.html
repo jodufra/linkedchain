@@ -4,47 +4,41 @@
         <div class="columns">
             <div class="column"> </div>
             <div class="column">
-                <form id="LoginForm" action="" #form>
+                <div id="SignUpPage">
                     <figure class="has-text-centered field">
                         <img src="assets/images/logotipo.png" alt="logotipo">
                     </figure>
-                    <div class="field">
-                        <div class="control has-icons-left has-icons-right">
-                            <input class="input" type="text" placeholder="Text input" value="Username">
-                            <span class="icon is-small is-left">
+                    <form id="LoginForm" *ngIf="address; else notConnected">
+                        <p>{{address}}</p>
+                        <div class="field">
+                            <div class="control has-icons-left has-icons-right">
+                                <input class="input" type="text" placeholder="Text input" value="">
+                                <span class="icon is-small is-left">
                             <i class="fa fa-user"></i>
                             </span>
-                            <span class="icon is-small is-right">
+                                <span class="icon is-small is-right">
                             <i class="fa fa-check"></i>
                             </span>
+                            </div>
                         </div>
-                    </div>
-                    <div class="field">
-                        <div class="control has-icons-left has-icons-right">
-                            <input class="input " type="text" placeholder="Text input" value="Password">
-                            <span class="icon is-small is-left">
-                            <i class="fa fa-lock"></i>
-                            </span>
-                            <span class="icon is-small is-right">
-                            <i class="fa fa-check"></i>
-                            </span>
-                        </div>
-                    </div>
-                    <div class="field">
-                        <div class="control">
-                            <label class="checkbox">
+                        <div class="field">
+                            <div class="control">
+                                <label class="checkbox">
                             <input type="checkbox">
                             Enterprise 
                             </label>
+                            </div>
                         </div>
-                    </div>
-                    {{form.valid}}
-                    <div class="control has-text-centered">
-                        <button (onclick)="doLogin($event)" [disabled]="form.valid" class="button is-primary">Submit</button>
-                    </div>
-                </form>
+                        <div class="control has-text-centered">
+                            <button (click)="registerAccount();" type="button " class="button is-primary ">Submit</button>
+                        </div>
+                    </form>
+                    <ng-template #notConnected>
+                        <p>Faça login no metamask!</p>
+                    </ng-template>
+                </div>
             </div>
-            <div class="column"> </div>
+            <div class="column "> </div>
         </div>
     </div>
 </section>

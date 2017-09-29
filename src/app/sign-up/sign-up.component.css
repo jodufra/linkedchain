@@ -1,9 +1,18 @@
-.sign-in{ 
+.sign-in .bg-effect {
+    background-image: url('/assets/images/bg-login.jpeg');
+    width: 100%;
+    position: absolute;
+    height: 100vh;
+    background-size: cover;
+    filter: blur(4px);
 }
 
-.sign-in .bg-effect{
-    background-image: url('/assets/images/bg-login.jpeg'); width: 100%;  position:absolute; height: 100vh; background-size: cover; filter: blur(4px);
-}
 
-/* Login Form  */
-#LoginForm{ background: rgba(255, 255, 255, 0.7); padding:35px; border-radius: 5px; margin-top:20vh;}
+/* SignUpPage  */
+
+#SignUpPage {
+    background: rgba(255, 255, 255, 0.7);
+    padding: 35px;
+    border-radius: 5px;
+    margin-top: 20vh;
+}
