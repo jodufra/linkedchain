@@ -3,6 +3,7 @@ import { SecurityService } from '../_shared/services/security.service';
 import { BlockchainService } from '../services/blockchain';
 import { LinkedChainContract } from '../_contracts/linkedchain.contract';
 import { Router } from '@angular/router';
+import { Entity } from '../_shared/entities/entity';
 
 @Component({
   selector: 'app-sign-up',
@@ -12,6 +13,8 @@ import { Router } from '@angular/router';
 export class SignUpComponent implements OnInit {
 
   address: string = null;
+  entity: Entity = null;
+  isLoading: boolean = false;
 
   constructor(
     private securityService: SecurityService,
@@ -22,30 +25,30 @@ export class SignUpComponent implements OnInit {
     { }
 
   ngOnInit() {
-    if (!this.securityService.isAuthenticated()) 
-    {
-        //this.blochainService.loginEventEmmitter().subscribe(() => this.checkOnProvider());
-    } 
-    else 
-    {
       this.checkOnProvider();
-    }
   }
 
   checkOnProvider(): void {
-     this.address = this.securityService.getAddress();
-
-     // check on blockchain fot this address
-     this.linkedChainContract.registedEntities(this.address).subscribe((result:boolean) => { 
-      if (result)
-      {
-        this.router.navigateByUrl('/dashboard');
-      }
-    });
+     if (this.securityService.isAccountActive()) 
+     {
+        this.address = this.securityService.getAddress();
+        // check on blockchain fot this address
+        this.linkedChainContract.registedEntities(this.address).subscribe((result:boolean) => { 
+          if (result)
+          {
+            this.router.navigateByUrl('/dashboard');
+          }
+        });
+    }
   }
 
   registerAccount(): void {
-    this.linkedChainContract.updateEntity("Marco").subscribe(() => this.router.navigateByUrl('/dashboard'));
+    this.isLoading = true;
+    this.linkedChainContract.updateEntity(this.entity.name).subscribe(
+      () => this.router.navigateByUrl('/dashboard'),
+      ()=> {},
+      () => this.isLoading = false
+    );
   }
 
 }
