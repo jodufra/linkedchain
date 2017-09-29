@@ -24,4 +24,7 @@ body .bgBlue{background-color:#00b7fa; }
 .button{ font-weight: 300; font-family: 'Roboto', sans-serif; letter-spacing: 2px; border-radius: 2px; transition: 0.3s; }
 .button.is-primary{background-color:#00b7fa;}
 .button.is-primary:hover{background-color:#0f6691; transition: 0.3s;}
+.button.is-success{background-color:#0f6691;}
+.button.is-success:hover{background-color:#00b7fa; transition: 0.3s;}
+
 .input:focus{border-color:#00b7fa;}
