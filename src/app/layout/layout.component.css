@@ -1,5 +1,6 @@
 .breadcrumb {
     padding: 10px 0;
+    margin-bottom: 0;
 }
 
 .breadcrumb .logo {
@@ -29,3 +30,5 @@
     color: white;
     margin-right: 10px;
 }
+
+.sub-crumb{background-color:  rgba(5, 165, 197, 0.05); padding:10px 0; width:100%; }
