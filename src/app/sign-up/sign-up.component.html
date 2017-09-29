@@ -4,44 +4,43 @@
         <div class="columns">
             <div class="column"> </div>
             <div class="column">
-                <form id="LoginForm" action="">
+                <form id="LoginForm" action="" #form>
                     <figure class="has-text-centered field">
                         <img src="assets/images/logotipo.png" alt="logotipo">
                     </figure>
                     <div class="field">
                         <div class="control has-icons-left has-icons-right">
-                            <input class="input " type="text" placeholder="Text input" value="Username">
+                            <input class="input" type="text" placeholder="Text input" value="Username">
                             <span class="icon is-small is-left">
-                  <i class="fa fa-user"></i>
-                </span>
+                            <i class="fa fa-user"></i>
+                            </span>
                             <span class="icon is-small is-right">
-                  <i class="fa fa-check"></i>
-                </span>
+                            <i class="fa fa-check"></i>
+                            </span>
                         </div>
-
-                        <!-- <p class="help is-success">This username is available</p> -->
                     </div>
                     <div class="field">
                         <div class="control has-icons-left has-icons-right">
                             <input class="input " type="text" placeholder="Text input" value="Password">
                             <span class="icon is-small is-left">
-                    <i class="fa fa-lock"></i>
-                  </span>
+                            <i class="fa fa-lock"></i>
+                            </span>
                             <span class="icon is-small is-right">
-                    <i class="fa fa-check"></i>
-                  </span>
+                            <i class="fa fa-check"></i>
+                            </span>
                         </div>
                     </div>
                     <div class="field">
                         <div class="control">
                             <label class="checkbox">
-                    <input type="checkbox">
-                    Enterprise 
-                  </label>
+                            <input type="checkbox">
+                            Enterprise 
+                            </label>
                         </div>
                     </div>
+                    {{form.valid}}
                     <div class="control has-text-centered">
-                        <button [routerLink]="['/dashboard']" class="button is-primary">Submit</button>
+                        <button (onclick)="doLogin($event)" [disabled]="form.valid" class="button is-primary">Submit</button>
                     </div>
                 </form>
             </div>

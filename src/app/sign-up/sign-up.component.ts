@@ -12,4 +12,8 @@ export class SignUpComponent implements OnInit {
   ngOnInit() {
   }
 
+  doLogin(event): void {
+    event.preventDefault();
+  }
+
 }

@@ -1,0 +1,1 @@
+[{"constant":false,"inputs":[{"name":"_address","type":"address"},{"name":"_name","type":"string"}],"name":"createEntity","outputs":[],"payable":false,"type":"function"},{"constant":false,"inputs":[{"name":"_address","type":"address"}],"name":"getEntity","outputs":[{"name":"","type":"string"},{"name":"","type":"bool"},{"name":"","type":"bool"}],"payable":false,"type":"function"}]
