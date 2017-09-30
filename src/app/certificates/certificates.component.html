@@ -4,7 +4,7 @@
     <div class="container">
         <div class="columns">
             <h1>Your Certifications</h1>
-            
+
         </div>
         <table class="table" *ngIf="certifications.length > 0; else noCertifications">
             <thead>
@@ -18,7 +18,8 @@
                 <tr>
                     <td>{{cert.from}}</td>
                     <td>{{cert.description}}</td>
-                    <td class="has-text-centered"><div class="ranking">
+                    <td class="has-text-centered">
+                        <div class="ranking">
                             <i class="fa fa-star"><span>1</span></i>
                         </div>
                     </td>

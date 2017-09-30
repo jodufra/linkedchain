@@ -38,7 +38,7 @@ export class CertificatesComponent implements OnInit {
       for (let i = 0; i < this.entity.certificationsCounter; i++) {
         this.linkedChainContract.certificationsOwned(this.address,i).subscribe(
           (result: any) => {
-            this.certifications = [];
+             this.certifications = [];
              if (result && result.length > 0) {
                 let cert = new Certification();
                 cert.to = result[2];
@@ -46,6 +46,7 @@ export class CertificatesComponent implements OnInit {
                 cert.description = result[0];
                 this.certifications.push(cert);
              }
+             this.ref.detectChanges();
            }
         );
       }
