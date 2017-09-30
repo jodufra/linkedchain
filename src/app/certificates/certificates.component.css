@@ -22,3 +22,12 @@
 .account-dashboard  .ranking i{position: relative;}
 .account-dashboard  .ranking i.fa{font-size: 34px; color: rgb(255, 208, 0); text-align:center;}
 .account-dashboard  .ranking i.fa span{position: absolute; left: 0; right:0; top:9px; margin:auto; font-size: 16px; display:inline-block; color: black; font-family: roboto;}
+.message.is-info .message-body {
+    border-color: #00b7fa;
+    color: #00b7fa;
+}
+
+.message.is-info .message-header {
+    background-color: #00b7fa;
+    color: #fff;
+}
