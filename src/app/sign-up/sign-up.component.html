@@ -8,15 +8,16 @@
                     <figure class="has-text-centered field">
                         <img src="assets/images/logotipo.png" alt="logotipo">
                     </figure>
+                    <p>{{address}}</p>
                     <form id="LoginForm" *ngIf="address; else notConnected">
                         <div class="field">
                             <label class="label">Your Address:</label>
                             <label class="">{{address}}</label>
                         </div>
                         <div class="field">
-                            <label class="label">Username</label>
+                            <label class="label">Yout Name:</label>
                             <div class="control has-icons-left has-icons-right">
-                                <input class="input" type="text" placeholder="Text your name" name="name" required [(ngModel)]="entity.name">
+                                <input class="input" type="text" placeholder="Text your name" name="entityName" required [(ngModel)]="entityName">
                                 <span class="icon is-small is-left">
                             <i class="fa fa-user"></i>
                             </span>
@@ -32,7 +33,7 @@
                     <ng-template #notConnected>
                         <div class="control has-text-centered">
                             <p class="label">Please, make login with metamask!</p>
-                            <button type="button " class="button is-success"><i class="fa refresh fa-refresh"></i> Reload page </button>
+                            <a href="/sign-up" class="button is-success"><i class="fa refresh fa-refresh"></i> Reload page </a>
                         </div>
                     </ng-template>
                 </div>
