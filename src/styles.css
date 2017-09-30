@@ -23,22 +23,10 @@ body h1, body h2, body h3, body h4 {
 }
 
 body h1 {
-    font-size: 48px;
+    font-size: 32px;
 }
 
 body h2 {
-    font-size: 42px;
-}
-
-body h3 {
-    font-size: 36px;
-}
-
-body h4 {
-    font-size: 28px;
-}
-
-body h5 {
     font-size: 28px;
 }
 
@@ -140,5 +128,28 @@ nav {
 
 .fa.is-success{color:green; }
 .fa.is-error{color:red; }
+.fa.is-danger{color:red; }
+
+.footer {
+    padding: 25px 0 !important;
+}
 
 
+@media (max-width:1180px) {
+    .container {
+        margin: 0;
+        position: relative;
+        max-width: 100%;
+        padding: 0 25px;
+    }
+}
+
+@media (max-width:768px) {
+    #SignUpPage{ margin-top:35px !important;
+        max-width: 80%;
+        margin: auto;}
+
+        #SignUpPage figure{max-width: 250px; margin: auto; margin-bottom: 15px;}
+        #SignUpPage  figure .logo{max-width: 100%; }
+ 
+}
