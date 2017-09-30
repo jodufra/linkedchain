@@ -4,7 +4,7 @@
         <ul class="is-pulled-right is-inline-flex">
             <li><a [routerLink]="['/certificates']">Certificates</a></li>
             <li><a [routerLink]="['/account']">Account</a></li>
-            <li><a [routerLink]="['/assign']">Assign</a></li>
+            <li *ngIf="entity && entity.isCompany"><a [routerLink]="['/assign']">Assign</a></li>
         </ul>
     </div>
 </nav>
