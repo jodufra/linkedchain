@@ -137,3 +137,8 @@ body .bgBlue {
 nav {
     margin-bottom: 0 !important;
 }
+
+.fa.is-success{color:green; }
+.fa.is-error{color:red; }
+
+
