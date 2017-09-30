@@ -26,7 +26,7 @@ export class AssignComponent implements OnInit {
     this.isLoading = true;
     this.linkedChainContract.addCertification(this.personAddress,this.certificationName).subscribe(
       () => { 
-        alert('Certification Given');
+        alert('Certification given');
       },
       ()=> {},
       () => { 

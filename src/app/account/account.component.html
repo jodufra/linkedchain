@@ -1,18 +1,19 @@
-<app-breadcrumb></app-breadcrumb>
+<app-breadcrumb [entity]="entity"></app-breadcrumb>
 
 <section class="account-dashboard generalSection" *ngIf="entity">
     <div class="container">
         <div class="columns">
             <div class="column"> </div>
             <div class="column">
-                <form id="LoginForm" #form="ngForm" (ngSubmit)="upateAccount()">
+                <form #form="ngForm" (ngSubmit)="upateAccount()">
                     <div class="field">
                         <h1>Your Address</h1>
                         <strong>{{address}}</strong>
                     </div>
+                    <strong>Insert your new name:</strong>
                     <div class="field">
                         <div class="control has-icons-left has-icons-right">
-                            <input class="input" type="text" placeholder="Text input" required [(ngModel)]="entity.name" name="name">
+                            <input class="input" type="text" placeholder="Text input" required [(ngModel)]="entityName" name="entityName">
                             <span class="icon is-small is-left">
                         <i class="fa fa-user"></i>
                     </span>

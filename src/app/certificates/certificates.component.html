@@ -1,23 +1,33 @@
-<app-breadcrumb></app-breadcrumb>
+<app-breadcrumb [entity]="entity"></app-breadcrumb>
 
 <section class="account-dashboard generalSection">
     <div class="container">
         <div class="columns">
             <h1>Your Certifications</h1>
         </div>
-        <table class="table">
+        <table class="table" *ngIf="certifications.length > 0; else noCertifications">
             <thead>
                 <tr>
                     <th>Entity</th>
                     <th>Certification Hash</th>
+                    <th>Confirmations</th>
                 </tr>
             </thead>
             <tbody *ngFor="let cert of certifications;">
                 <tr>
                     <td>{{cert.from}}</td>
                     <td>{{cert.description}}</td>
+                    <td>1</td>
                 </tr>
             </tbody>
         </table>
+        <ng-template #noCertifications>
+            <article class="message is-info">
+                <div class="message-header">
+                    <p>Information</p>
+                </div>
+                <div class="message-body">No certifications owned</div>
+            </article>
+        </ng-template>
     </div>
 </section>

@@ -1,4 +1,4 @@
-import { Injectable, ApplicationRef } from '@angular/core';
+import { Injectable, ApplicationRef, EventEmitter } from '@angular/core';
 import { Entity } from '../entities/entity';
 import { LinkedChainContract } from '../smartcontracts/linkedchain.contract';
 import { BlockchainService } from './blockchain';
@@ -8,16 +8,17 @@ export class SessionService {
 
   address: string = null;
   entity: Entity = null;
+  sessionUpdated: EventEmitter<Entity> = new EventEmitter<Entity>();
 
   constructor(
       private blockchainService: BlockchainService,
-      private linkedChainContract: LinkedChainContract,
-      private ref: ApplicationRef
+      private linkedChainContract: LinkedChainContract
     ) { }
 
   clear(): void {
       this.address = null;
       this.entity = null;
+      this.emitChanges(null);
   }
 
   load(): void {
@@ -34,9 +35,13 @@ export class SessionService {
               } else {
                   this.entity = null;
               }
-              this.ref.tick();
+              this.emitChanges(this.entity);
            });
       }
+  }
+
+  emitChanges(entity: Entity) : void {
+      this.sessionUpdated.emit(entity);
   }
 
 }
