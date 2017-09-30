@@ -1,4 +1,4 @@
-import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef, Input } from '@angular/core';
 import { SessionService } from '../services/session';
 import { Entity } from '../entities/entity';
 
@@ -46,18 +46,8 @@ styles: [`
 .sub-crumb{background-color:  rgba(5, 165, 197, 0.05); padding:10px 0; width:100%; }
 `]
 })
-export class BreadcrumbComponent implements OnInit {
+export class BreadcrumbComponent {
 
-entity: Entity = null;
-
-constructor(
-private sessionService: SessionService
-) {
-
-}
-
-ngOnInit(): void {
-this.entity = this.sessionService.entity;
-}
+@Input() entity: Entity = null;
 
 }

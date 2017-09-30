@@ -17,7 +17,6 @@ export class AuthGuard {
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
       if (this.securityService.isAuthenticated()) {
-        this.sessionService.load();
         return true;
       }
       this.sessionService.clear();

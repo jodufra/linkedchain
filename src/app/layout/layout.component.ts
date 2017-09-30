@@ -7,10 +7,11 @@ import { SessionService } from '../_shared/services/session';
   styles: ['./layout.component.css']
 })
 export class LayoutComponent {
-
+ 
   constructor(
     private sessionService: SessionService
   ) {
     this.sessionService.load();
   }
+
 }

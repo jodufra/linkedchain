@@ -22,20 +22,29 @@ export class CertificatesComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.entity = this.sessionService.entity;
     this.address = this.sessionService.address;
-    if (this.address !== null) 
+    this.entity = this.sessionService.entity;
+    this.loadCertifications();
+    this.sessionService.sessionUpdated.subscribe((entity: Entity) => { 
+      this.entity = entity; 
+      this.ref.detectChanges();
+      this.loadCertifications();
+    } );
+  }
+
+  loadCertifications(): void {
+    if (this.address !== null && this.entity !== null && this.entity.certificationsCounter) 
     { 
-    for (let i = 0; i < this.entity.certificationsCounter; i++) {
+      for (let i = 0; i < this.entity.certificationsCounter; i++) {
         this.linkedChainContract.certificationsOwned(this.address,i).subscribe(
           (result: any) => {
+            this.certifications = [];
              if (result && result.length > 0) {
                 let cert = new Certification();
                 cert.to = result[2];
                 cert.from = result[1];
                 cert.description = result[0];
                 this.certifications.push(cert);
-                this.ref.detectChanges();
              }
            }
         );
