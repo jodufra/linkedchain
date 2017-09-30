@@ -1,3 +1,5 @@
 export class Certification {
-    name: string;
+    to: string;
+    from: string;
+    description: string;
 }

@@ -1,17 +1,12 @@
-.sign-in .bg-effect {
-    background-image: url(/assets/images/bg-login.jpeg);
+.sign-in  {
+    background-image: url(/assets/images/bg-login.jpg);
     width: 100%;
     position: fixed;
-    height: 105%;
+    height: 100%;
     background-size: cover;
     background-position: center top;
     background-repeat: no-repeat;
-    filter: blur(4px);
-    
 }
-
-
-/* SignUpPage  */
 
 #SignUpPage {
     background: rgba(255, 255, 255, 0.7);

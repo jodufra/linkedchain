@@ -1,4 +1,5 @@
 import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
+import { SessionService } from '../_shared/services/session';
 
 @Component({
   selector: 'app-layout',
@@ -8,7 +9,8 @@ import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 export class LayoutComponent {
 
   constructor(
+    private sessionService: SessionService
   ) {
-
+    this.sessionService.load();
   }
 }

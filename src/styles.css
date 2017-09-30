@@ -94,3 +94,51 @@ body .bgBlue {
 .input:focus {
     border-color: #00b7fa;
 }
+
+.breadcrumb {
+    padding: 10px 0;
+    margin-bottom: 0;
+}
+
+.breadcrumb .logo {
+    max-width: 150px;
+}
+
+.breadcrumb ul {
+    margin: 10px 0;
+}
+
+.breadcrumb ul>li>a {
+    color: white;
+    transition: 0.5s;
+}
+
+.breadcrumb ul>li>a:hover {
+    transition: 0.3s;
+    color: #05A2C5;
+}
+
+.breadcrumb ul>li.is-active {
+    color: white;
+    font-weight: 700;
+}
+
+.breadcrumb ul>li+li::before {
+    color: white;
+    margin-right: 10px;
+}
+
+.sub-crumb {
+    background-color: rgba(5, 165, 197, 0.05);
+    padding: 10px 0;
+    width: 100%;
+}
+
+nav {
+    margin-bottom: 0 !important;
+}
+
+.fa.is-success{color:green; }
+.fa.is-error{color:red; }
+
+

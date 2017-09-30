@@ -6,8 +6,8 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class LinkedChainContract implements IContract {
     
-    IBArray = [{"constant":false,"inputs":[{"name":"_name","type":"string"}],"name":"updateEntity","outputs":[],"payable":false,"type":"function"},{"constant":true,"inputs":[{"name":"","type":"address"},{"name":"","type":"uint256"}],"name":"certificationsGiven","outputs":[{"name":"description","type":"string"},{"name":"from","type":"address"},{"name":"to","type":"address"}],"payable":false,"type":"function"},{"constant":true,"inputs":[{"name":"","type":"address"},{"name":"","type":"uint256"}],"name":"certificationsOwned","outputs":[{"name":"description","type":"string"},{"name":"from","type":"address"},{"name":"to","type":"address"}],"payable":false,"type":"function"},{"constant":false,"inputs":[{"name":"_entityAddress","type":"address"},{"name":"_isCompany","type":"bool"}],"name":"setEntityType","outputs":[],"payable":false,"type":"function"},{"constant":true,"inputs":[{"name":"","type":"address"}],"name":"isEntityRegistered","outputs":[{"name":"","type":"bool"}],"payable":false,"type":"function"},{"constant":false,"inputs":[{"name":"_destinatary","type":"address"},{"name":"_certification","type":"string"}],"name":"addCertification","outputs":[],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"getEntity","outputs":[{"name":"name","type":"string"},{"name":"isCompany","type":"bool"},{"name":"certificationsOwnedCounter","type":"uint256"}],"payable":false,"type":"function"},{"inputs":[],"payable":false,"type":"constructor"},{"anonymous":false,"inputs":[{"indexed":false,"name":"_address","type":"address"},{"indexed":false,"name":"_name","type":"string"},{"indexed":false,"name":"_isCompany","type":"bool"}],"name":"EntityUpdated","type":"event"}];
-    Address = "0xe11d5b298397133825529fb408d6723390cb8add";
+    IBArray = [{"constant":false,"inputs":[{"name":"_name","type":"string"}],"name":"updateEntity","outputs":[],"payable":false,"type":"function"},{"constant":true,"inputs":[{"name":"","type":"address"},{"name":"","type":"uint256"}],"name":"certificationsGiven","outputs":[{"name":"description","type":"string"},{"name":"from","type":"address"},{"name":"to","type":"address"}],"payable":false,"type":"function"},{"constant":true,"inputs":[{"name":"","type":"address"},{"name":"","type":"uint256"}],"name":"certificationsOwned","outputs":[{"name":"description","type":"string"},{"name":"from","type":"address"},{"name":"to","type":"address"}],"payable":false,"type":"function"},{"constant":false,"inputs":[{"name":"_entityAddress","type":"address"},{"name":"_isCompany","type":"bool"}],"name":"setEntityType","outputs":[],"payable":false,"type":"function"},{"constant":true,"inputs":[{"name":"","type":"address"}],"name":"isEntityRegistered","outputs":[{"name":"","type":"bool"}],"payable":false,"type":"function"},{"constant":false,"inputs":[{"name":"_destinatary","type":"address"},{"name":"_certification","type":"string"}],"name":"addCertification","outputs":[],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"getEntity","outputs":[{"name":"name","type":"string"},{"name":"isCompany","type":"bool"},{"name":"certificationsOwnedCounter","type":"uint256"},{"name":"certificationsGivenCounter","type":"uint256"}],"payable":false,"type":"function"},{"inputs":[],"payable":false,"type":"constructor"},{"anonymous":false,"inputs":[{"indexed":false,"name":"_address","type":"address"},{"indexed":false,"name":"_name","type":"string"},{"indexed":false,"name":"_isCompany","type":"bool"}],"name":"EntityUpdated","type":"event"}]
+    Address = "0x50c748ae60832df23c365995246f62d280bcff3e";
     
     /**
      * LinkedChainContract constructor
@@ -41,7 +41,7 @@ export class LinkedChainContract implements IContract {
      * @returns {Observable<{ description : string, from : string, to : string }>}
      */
     certificationsOwned (address_0: string, uint256_1: number) : Observable<{ description : string, from : string, to : string }> {
-        return this.blockchainService.executeMethod(this, 'certificationsOwned', { address_0, uint256_1 });
+        return this.blockchainService.executeMethod2(this, 'certificationsOwned', address_0, uint256_1 );
     }
     
     /**
@@ -73,12 +73,12 @@ export class LinkedChainContract implements IContract {
     
     /**
      * getEntity function
-     * @returns {Observable<{ name : string, isCompany : boolean, certificationsOwnedCounter : number }>}
+     * @returns {Observable<{ name : string, isCompany : boolean, certificationsOwnedCounter : number, certificationsGivenCounter : number }>}
      */
-    getEntity () : Observable<{ name : string, isCompany : boolean, certificationsOwnedCounter : number }> {
+    getEntity () : Observable<{ name : string, isCompany : boolean, certificationsOwnedCounter : number, certificationsGivenCounter : number }> {
         return this.blockchainService.executeMethod(this, 'getEntity', null);
     }
-    
+        
     /**
      * onEntityUpdated event
      * @param {string} _address

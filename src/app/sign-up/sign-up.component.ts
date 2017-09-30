@@ -14,7 +14,7 @@ import { SessionService } from '../_shared/services/session';
 export class SignUpComponent implements OnInit {
 
   address: string = null;
-  entity: Entity = new Entity();
+  entityName: string = null;
   isLoading: boolean = false;
 
   constructor(
@@ -36,7 +36,7 @@ export class SignUpComponent implements OnInit {
         this.address = this.securityService.getAddress();
         this.sessionService.address = this.address;
         // check on blockchain fot this address
-        this.linkedChainContract.isEntityRegistered(this.address).subscribe((result:boolean) => { 
+        this.linkedChainContract.isEntityRegistered(this.address).subscribe((result:boolean) => {
           if (result)
           {
             this.router.navigateByUrl('/dashboard');
@@ -47,8 +47,7 @@ export class SignUpComponent implements OnInit {
 
   registerAccount(): void {
     this.isLoading = true;
-    console.log(this.entity.name);
-    this.linkedChainContract.updateEntity(this.entity.name).subscribe(
+    this.linkedChainContract.updateEntity(this.entityName).subscribe(
       () => { 
         this.router.navigateByUrl('/dashboard');
       },
