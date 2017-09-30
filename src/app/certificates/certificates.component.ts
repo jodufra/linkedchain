@@ -17,7 +17,8 @@ export class CertificatesComponent implements OnInit {
 
   constructor(
     private sessionService: SessionService,
-    private linkedChainContract: LinkedChainContract
+    private linkedChainContract: LinkedChainContract,
+    private ref: ChangeDetectorRef
   ) { }
 
   ngOnInit() {
@@ -26,6 +27,7 @@ export class CertificatesComponent implements OnInit {
     this.loadCertifications();
     this.sessionService.sessionUpdated.subscribe((entity: Entity) => { 
       this.entity = entity; 
+      this.ref.detectChanges();
       this.loadCertifications();
     } );
   }

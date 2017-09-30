@@ -1,6 +1,7 @@
 import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { SessionService } from '../_shared/services/session';
 import { LinkedChainContract } from '../_shared/smartcontracts/linkedchain.contract';
+import { Entity } from '../_shared/entities/entity';
 
 @Component({
   selector: 'app-assign',
@@ -9,6 +10,7 @@ import { LinkedChainContract } from '../_shared/smartcontracts/linkedchain.contr
 })
 export class AssignComponent implements OnInit {
 
+  entity: Entity = null;
   personAddress: string = null;
   certificationName: string = null;
   isLoading: boolean = false;
@@ -20,6 +22,11 @@ export class AssignComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.entity = this.sessionService.entity;
+    this.sessionService.sessionUpdated.subscribe((entity: Entity) => { 
+      this.entity = entity;
+      this.ref.detectChanges();
+     });
   }
 
   registerCertification(): void {

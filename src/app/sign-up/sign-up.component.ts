@@ -39,6 +39,7 @@ export class SignUpComponent implements OnInit {
         this.linkedChainContract.isEntityRegistered(this.address).subscribe((result:boolean) => {
           if (result)
           {
+            this.sessionService.load();
             this.router.navigateByUrl('/dashboard');
           }
         });
@@ -49,11 +50,11 @@ export class SignUpComponent implements OnInit {
     this.isLoading = true;
     this.linkedChainContract.updateEntity(this.entityName).subscribe(
       () => { 
+        this.sessionService.load();
         this.router.navigateByUrl('/dashboard');
       },
       ()=> {},
       () => this.isLoading = false
     );
   }
-
 }

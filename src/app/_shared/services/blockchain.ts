@@ -72,15 +72,4 @@ export class BlockchainService {
       });
     });
   }
-
-  changeStateEvent(): Observable<boolean> {
-    return Observable.create(observer => {
-      window.setInterval(() =>  {
-          let add = this.getAddress();
-          observer.next(add !== null && add !== undefined);
-      }
-      , 5000);
-    });
-  }
-
 }
