@@ -18,9 +18,7 @@ export class AccountComponent implements OnInit {
     private sessionService: SessionService,
     private linkedChainContract: LinkedChainContract,
     private ref: ChangeDetectorRef
-  ) { 
-   
-  }
+  ) {  }
 
   ngOnInit() {
     this.address = this.sessionService.address;
