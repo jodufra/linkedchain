@@ -51,10 +51,10 @@ contract LinkedChain {
     owner = msg.sender;
   }
 
-  function triggerEntityUpdated(address _entityAddress) private {
+ /*function triggerEntityUpdated(address _entityAddress) private {
     var entity = entities[_entityAddress];
-    EntityUpdated(entity.entityAddress,  entity.name, entity.entityType == EntityType.Company);
-  }
+    EntityUpdated(entity.entityAddress, entity.name, entity.entityType == EntityType.Company);
+  }*/
 
   /*
    * If entity exist, then updates the Entity with the given name,
@@ -76,16 +76,17 @@ contract LinkedChain {
     }
 
     // trigger the entity updated event
-    triggerEntityUpdated(msg.sender);
+    // triggerEntityUpdated(msg.sender);
   }
 
   /*
    * Returns the Entity information of msg.sender
    */
-  function getEntity() public constant returns (string name, bool isCompany, uint certificationsOwnedCounter) {
+  function getEntity() public constant returns (string name, bool isCompany, uint certificationsOwnedCounter, uint certificationsGivenCounter) {
     name = entities[msg.sender].name;
     isCompany = entities[msg.sender].entityType == EntityType.Company;
     certificationsOwnedCounter = certificationsOwned[msg.sender].length;
+    certificationsGivenCounter = certificationsGiven[msg.sender].length;
   }
 
   /*
@@ -93,7 +94,7 @@ contract LinkedChain {
    */
   function addCertification(address _destinatary, string _certification) public {
     // checks if the sender can assign certificates
-    // TODO: require(entities[msg.sender].entityType = EntityType.Company)
+    require(entities[msg.sender].entityType == EntityType.Company);
 
     // destinatary must have a valid address
     require(_destinatary != address(0));
@@ -121,6 +122,6 @@ contract LinkedChain {
     entities[_entityAddress].entityType = _isCompany ? EntityType.Company : EntityType.User;
 
     // trigger the entity updated event
-    triggerEntityUpdated(_entityAddress);
+    // triggerEntityUpdated(_entityAddress);
   }
 }
